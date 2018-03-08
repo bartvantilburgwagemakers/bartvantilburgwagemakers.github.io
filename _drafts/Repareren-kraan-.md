@@ -9,3 +9,5 @@ title: Repareren kraan
 * geschuurd rubber
 * vuil er tussen
 
+![kraan/2](kraan/2] ) 
+
