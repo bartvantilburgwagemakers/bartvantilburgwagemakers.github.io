@@ -9,5 +9,6 @@ title: Repareren kraan
 * geschuurd rubber
 * vuil er tussen
 
-![kraan/2](kraan/2] ) 
+ ![My helpful screenshot]({{ "/assets/ |reparatie kraan/1" absolute_url }})
+
 
