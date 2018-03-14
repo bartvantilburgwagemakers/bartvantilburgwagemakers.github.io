@@ -6,7 +6,7 @@
 [test here ](https://bartvantilburgwagemakers.github.io/)
 
 # catogories
-[blogs]({baseurl}/category/blog.html)
+[blogs]({/category/blog.html)
 
 You can use the [editor on GitHub](https://github.com/bartvantilburgwagemakers/bartvantilburgwagemakers.github.io/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
 
@@ -33,7 +33,8 @@ Syntax highlighted code block
 
 [Link](url) and ![Image](src)
 ```
-![My helpful screenshot](/assets/reparatie kraan/1)   
+![My helpful screenshot](https://github.com/bartvantilburgwagemakers/bartvantilburgwagemakers.github.io/blob/master/assets/reparatie%20kraan/2.jpg)   
+
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
 ### Jekyll Themes
