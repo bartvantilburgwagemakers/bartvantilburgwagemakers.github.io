@@ -36,7 +36,7 @@ Syntax highlighted code block
 
 [Link](url) and ![Image](src)
 ```
-![My helpful screenshot](https://github.com/bartvantilburgwagemakers/bartvantilburgwagemakers.github.io/blob/master/assets/reparatie%20kraan/2.jpg)   
+![My helpful screenshot]({{baseUrl}}/blob/master/assets/reparatie%20kraan/2.jpg)   
 
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 

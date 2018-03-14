@@ -9,6 +9,10 @@ title: Repareren kraan
 * geschuurd rubber
 * vuil er tussen
 
- ![My helpful screenshot]({{ "/assets/reparatie kraan/1" absolute_url }})
+ ![kraan 1]({{site.data..main.baseUrl/assets/reparatie kraan/1.jpg}})
+
+ ![2]({{site.data..main.baseUrl/assets/reparatie kraan/2.jpg}})  
+ ![3]({{site.data..main.baseUrl/assets/reparatie kraan/3.jpg}})   
+ ![binnen pijp]({{site.data..main.baseUrl/assets/reparatie kraan/binnen pijp.jpg}})  
 
 
