@@ -28,7 +28,7 @@ Syntax highlighted code block
 
 [Link](url) and ![Image](src)
 ```
-
+![My helpful screenshot]({{ "/assets/reparatie kraan/1" absolute_url }})
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
 ### Jekyll Themes
