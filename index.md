@@ -11,6 +11,11 @@ baseUrl: https://github.com/bartvantilburgwagemakers/bartvantilburgwagemakers.gi
 # catogories
 [blogs]({{baseUrl}}/category/blog.html)
 
+{% for post in site.posts %}  
+1. [{{post.title}}]({{post.url}})  
+
+{% endfor %}
+
 You can use the [editor on GitHub](https://github.com/bartvantilburgwagemakers/bartvantilburgwagemakers.github.io/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
