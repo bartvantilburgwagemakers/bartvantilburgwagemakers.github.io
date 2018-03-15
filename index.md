@@ -8,8 +8,7 @@ baseUrl: https://github.com/bartvantilburgwagemakers/bartvantilburgwagemakers.gi
 
 [test here ](https://bartvantilburgwagemakers.github.io/)
 
-# catogories
-[blogs]({{baseUrl}}/category/blog.html)
+# Posts:
 
 {% for post in site.posts %}  
 1. [{{post.title}}]({{post.url}})  
