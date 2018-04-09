@@ -3,7 +3,7 @@ layout: post
 title: Task canceled 
 ---
 
-* reentivce extentsion
+* reentivce extension
 * tasks
 * timeout
 * exception
