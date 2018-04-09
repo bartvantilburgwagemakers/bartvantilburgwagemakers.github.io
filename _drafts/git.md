@@ -1,8 +1,15 @@
-# How to write Git commit messages
+# Git
+
+## How to write Git commit messages
 
 It's a good habbid to make sure you commit messages read i way that they tell wat they change in your code.
 
 * [a blog post on writing commit messages](https://chris.beams.io/posts/git-commit/)
+
+## Pullrequests
+
+Make sure that you come with sugestions.
+Explain why you think something is better.
 
 ## other git links
 
