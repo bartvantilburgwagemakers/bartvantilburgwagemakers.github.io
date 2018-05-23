@@ -3,7 +3,7 @@ title: visual studio remove License Key
 layout: post
 date:   2018-05-22 08:00:01 -0600
 categories: visual studio
-tags: vs, visual studio 2017
+tags: vs visualStudio2017
 ---
 # {{title}}
 
