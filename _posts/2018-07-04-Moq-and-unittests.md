@@ -24,7 +24,7 @@ var brockerUtilsMock = new Mock<BrockerUtils>(){ CallBase = true};
 ## AutoMock && AutoFact
 
 When testing methodes with a lot of dependency's injected, it can be a lot of repeating work to mock them all.
-To auto mock these you can use automock.
+To auto mock these you can use autofac + moq to auto resolve and mock some dependencies.
 
 ```csharp
  using (var mock = AutoMock.GetLoose())
