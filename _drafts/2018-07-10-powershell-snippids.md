@@ -28,8 +28,9 @@ Gci | Unblock-File un blocks all files in folder
 Get-Content myTestLog.log -wait | where { $_ -match “WARNING” }
 ```
 
-Set global var from function
-$gobal:name
+Set global var from function:
+`$gobal:name`   
+Else your only ajusting the scoped var.
 
 ## making a post request
 

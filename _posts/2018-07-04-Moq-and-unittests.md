@@ -35,3 +35,13 @@ To auto mock these you can use autofac + moq to auto resolve and mock some depen
                 Assert.IsFalse(hostedAppRegistry.Apps.Any());
             }
 ```
+
+## Raise a event
+
+To raise a event for a mocked object you can use 
+
+```csharp
+// Raising a custom event which does not adhere to the EventHandler pattern
+// Raise passing the custom arguments expected by the event delegate
+    mock.Raise(foo => foo.MyEvent += null, 25, true);
+```
