@@ -35,7 +35,7 @@ Else your only ajusting the scoped var.
 ## making a post request
 
 ```powershell
-Invoke-WebRequest -Uri $url -OutFile $file -Headers $Headers -Method POST
+Invoke-WebRequest -Uri $url -OutFile $file -Headers $Headers -Method POST -Body $body 
 ```
 
 ## search in files
