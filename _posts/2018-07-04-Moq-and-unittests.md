@@ -11,6 +11,8 @@ tags: c# .net unitTests
 - [{{title}}](#title)
     - [To call the real methodes on a object](#to-call-the-real-methodes-on-a-object)
     - [AutoMock && AutoFact](#automock--autofact)
+    - [Raise a event](#raise-a-event)
+    - [A object to Json.](#a-object-to-json)
 
 ## To call the real methodes on a object
 
@@ -45,3 +47,7 @@ To raise a event for a mocked object you can use
 // Raise passing the custom arguments expected by the event delegate
     mock.Raise(foo => foo.MyEvent += null, 25, true);
 ```
+
+## A object to Json.
+
+Some times you want to rerun a senario wit input collected while debugging. You can create a test for this by writing the input object to json en read it in the unit test. ```Newtonsoft.Json.JsonConvert.SerializeObject(Object)``` 
