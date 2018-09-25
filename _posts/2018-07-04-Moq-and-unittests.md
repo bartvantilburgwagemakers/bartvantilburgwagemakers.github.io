@@ -9,15 +9,13 @@ tags: c# .net unitTests
 # {{title}}
 
 - [{{title}}](#title)
-    - [To call the real method's on a object](#to-call-the-real-methods-on-a-object)
+    - [To call the real methodes on a object](#to-call-the-real-methodes-on-a-object)
     - [AutoMock && AutoFact](#automock--autofact)
-    - [Raise a event](#raise-a-event)
-    - [A object to Json.](#a-object-to-json)
     - [Map the ConsoleOutPut to a StringWriter So we can assert that](#map-the-consoleoutput-to-a-stringwriter-so-we-can-assert-that)
 
-## To call the real method's on a object
+## To call the real methodes on a object
 
-Sometimes you want to call the real implementation of a methode but mock some others.
+Somtimes you want to call the real implementation of a methode but mock some others.
 You can do this with `callbase = true ` and make the other methodes virtual.
 
 ```csharp
@@ -26,7 +24,7 @@ var brockerUtilsMock = new Mock<BrockerUtils>(){ CallBase = true};
 
 ## AutoMock && AutoFact
 
-When testing method's with a lot of dependency's injected, it can be a lot of repeating work to mock them all.
+When testing methodes with a lot of dependency's injected, it can be a lot of repeating work to mock them all.
 To auto mock these you can use autofac + moq to auto resolve and mock some dependencies.
 
 ```csharp
@@ -38,20 +36,6 @@ To auto mock these you can use autofac + moq to auto resolve and mock some depen
                 Assert.IsFalse(hostedAppRegistry.Apps.Any());
             }
 ```
-
-## Raise a event
-
-To raise a event for a mocked object you can use 
-
-```csharp
-// Raising a custom event which does not adhere to the EventHandler pattern
-// Raise passing the custom arguments expected by the event delegate
-    mock.Raise(foo => foo.MyEvent += null, 25, true);
-```
-
-## A object to Json.
-
-Some times you want to rerun a senario wit input collected while debugging. You can create a test for this by writing the input object to json en read it in the unit test. ```Newtonsoft.Json.JsonConvert.SerializeObject(Object)``` 
 
 ## Map the ConsoleOutPut to a StringWriter So we can assert that
 
