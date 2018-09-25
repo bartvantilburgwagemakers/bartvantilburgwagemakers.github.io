@@ -9,12 +9,15 @@ tags: c# .net unitTests
 # {{title}}
 
 - [{{title}}](#title)
-    - [To call the real method's on a object](#to-call-the-real-methodes-on-a-object)
+    - [To call the real method's on a object](#to-call-the-real-methods-on-a-object)
     - [AutoMock && AutoFact](#automock--autofact)
+    - [Raise a event](#raise-a-event)
+    - [A object to Json.](#a-object-to-json)
+    - [Map the ConsoleOutPut to a StringWriter So we can assert that](#map-the-consoleoutput-to-a-stringwriter-so-we-can-assert-that)
 
 ## To call the real method's on a object
 
-Somtimes you want to call the real implementation of a methode but mock some others.
+Sometimes you want to call the real implementation of a methode but mock some others.
 You can do this with `callbase = true ` and make the other methodes virtual.
 
 ```csharp
@@ -34,4 +37,31 @@ To auto mock these you can use autofac + moq to auto resolve and mock some depen
                 var hostedAppRegistry = mock.Create<HostedAppRegistry>();
                 Assert.IsFalse(hostedAppRegistry.Apps.Any());
             }
+```
+
+## Raise a event
+
+To raise a event for a mocked object you can use 
+
+```csharp
+// Raising a custom event which does not adhere to the EventHandler pattern
+// Raise passing the custom arguments expected by the event delegate
+    mock.Raise(foo => foo.MyEvent += null, 25, true);
+```
+
+## A object to Json.
+
+Some times you want to rerun a senario wit input collected while debugging. You can create a test for this by writing the input object to json en read it in the unit test. ```Newtonsoft.Json.JsonConvert.SerializeObject(Object)``` 
+
+## Map the ConsoleOutPut to a StringWriter So we can assert that
+
+```csharp
+using (var @out = new StringWriter())
+using (var @in = new StringReader(input))
+{
+    Console.SetOut(@out);
+    Console.SetIn(@in);
+
+    Assert.Equal("expected", @out.ToString);
+}
 ```
