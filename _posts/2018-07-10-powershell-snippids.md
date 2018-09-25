@@ -1,5 +1,5 @@
 ---
-title: Powershell snippits
+title: Powershell snippets
 layout: post
 date:   2018-07-10 08:00:01 -0600
 categories: scripting
@@ -22,15 +22,13 @@ Unblock-Files in folder
 
 Gci | Unblock-File un blocks all files in folder
 
-
-
 ```powershell
 Get-Content myTestLog.log -wait | where { $_ -match “WARNING” }
 ```
 
 Set global var from function:
-`$gobal:name`   
-Else your only ajusting the scoped var.
+`$gobal:name`
+Else your only adjusting the scoped var.
 
 ## making a post request
 
