@@ -1,3 +1,6 @@
 # bartvantilburgwagemakers.github.io
 
-a website where i try to write info to remember 
+a website with Jekyll where i try to write info to remember 
+
+The url is https://bartvantilburgwagemakers.github.io/
+
