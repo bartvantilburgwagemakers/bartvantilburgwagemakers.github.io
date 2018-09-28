@@ -12,13 +12,17 @@ tags: c# .net unitTests
     - [To call the real method's on a object](#to-call-the-real-methods-on-a-object)
     - [AutoMock && AutoFact](#automock--autofact)
     - [Raise a event](#raise-a-event)
-    - [A object to Json.](#a-object-to-json)
+    - [A object to Json](#a-object-to-json)
     - [Map the ConsoleOutPut to a StringWriter So we can assert that](#map-the-consoleoutput-to-a-stringwriter-so-we-can-assert-that)
+    - [FluentBuilder](#fluentbuilder)
+    - [testing of a HttpClient](#testing-of-a-httpclient)
+
+It's always recommended to keep your tests small example 16 lines and readably. And the cyclomatic complexity at 1.
 
 ## To call the real method's on a object
 
-Sometimes you want to call the real implementation of a methode but mock some others.
-You can do this with `callbase = true ` and make the other methodes virtual.
+Sometimes you want to call the real implementation of a method but mock some others.
+You can do this with `callbase = true` and make the other methods virtual.
 
 ```csharp
 var brockerUtilsMock = new Mock<BrockerUtils>(){ CallBase = true};
@@ -41,7 +45,7 @@ To auto mock these you can use autofac + moq to auto resolve and mock some depen
 
 ## Raise a event
 
-To raise a event for a mocked object you can use 
+To raise a event for a mocked object you can use
 
 ```csharp
 // Raising a custom event which does not adhere to the EventHandler pattern
@@ -49,9 +53,9 @@ To raise a event for a mocked object you can use
     mock.Raise(foo => foo.MyEvent += null, 25, true);
 ```
 
-## A object to Json.
+## A object to Json
 
-Some times you want to rerun a senario wit input collected while debugging. You can create a test for this by writing the input object to json en read it in the unit test. ```Newtonsoft.Json.JsonConvert.SerializeObject(Object)``` 
+Some times you want to rerun a scenario wit input collected while debugging. You can create a test for this by writing the input object to json en read it in the unit test. ```Newtonsoft.Json.JsonConvert.SerializeObject(Object)```
 
 ## Map the ConsoleOutPut to a StringWriter So we can assert that
 
@@ -61,7 +65,50 @@ using (var @in = new StringReader(input))
 {
     Console.SetOut(@out);
     Console.SetIn(@in);
+    Trace.Listeners.Add(new TextWriterTraceListener(Console.Out)); // if trace's aren't forwarded to the console
 
     Assert.Equal("expected", @out.ToString);
 }
+```
+
+## FluentBuilder
+
+To prevent very big test for the setup and prevent the creating of many different factory methods to create the objects.
+It's nicer to make use of the [fluent builder pattern](https://martinfowler.com/bliki/FluentInterface.html) and keep this test class internal so you can only use them inside the tests.
+
+An other way to prevent a lot of setup code the easy breaks is to make use of library's like autoMock or [autoFixture](https://github.com/AutoFixture/AutoFixture).
+
+## testing of a HttpClient
+
+It has no interface so mocking will be difficult. You can overwrite the httpClientHandler that you use to create a new HttpClient.
+
+class to test
+
+```csharp
+  internal virtual HttpClientHandler CreateClientHandler()
+        {
+            return new HttpClientHandler { UseDefaultCredentials = true, PreAuthenticate = true };
+        }
+```
+
+test class
+
+```csharp
+ public class MockHandler : HttpClientHandler
+    {
+        protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request,
+            CancellationToken cancellationToken)
+        {
+            var response = new HttpResponseMessage(HttpStatusCode.InternalServerError);
+            return Task.FromResult(response);
+        }
+    }
+
+    public class ProviderTest : Provider
+    {
+        internal override HttpClientHandler CreateClientHandler()
+        {
+            return new MockHandler();
+        }
+    }
 ```
