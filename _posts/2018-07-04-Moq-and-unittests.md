@@ -92,15 +92,22 @@ class to test
 ```
 
 test class
+The using is there to prevent CA2000: Dispose objects before losing scope.
 
 ```csharp
  public class MockHandler : HttpClientHandler
     {
-        protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request,
-            CancellationToken cancellationToken)
+        protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
-            var response = new HttpResponseMessage(HttpStatusCode.InternalServerError);
-            return Task.FromResult(response);
+            Task<HttpResponseMessage> result = null;
+            using (var errorResponse = new HttpResponseMessage(HttpStatusCode.InternalServerError))
+            {
+                var completionSource = new TaskCompletionSource<HttpResponseMessage>();
+                completionSource.SetResult(errorResponse);
+                result = completionSource.Task;
+            }
+
+            return result;
         }
     }
 
