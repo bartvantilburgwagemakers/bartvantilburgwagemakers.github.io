@@ -27,7 +27,7 @@ Get-Content myTestLog.log -wait | where { $_ -match “WARNING” }
 ```
 
 Set global var from function:
-`$gobal:name`
+`$global:name`
 Else your only adjusting the scoped var.
 
 ## making a post request
@@ -43,3 +43,8 @@ Example to search all .config files for log and group them by file path.
 ```powershell
 Get-ChildItem -recurse -Filter *.config | Select-String -pattern "log" | group path | select Path
 ```
+
+## add a profile
+
+In `C:\Users\[username]\Documents\WindowsPowerShell` you can add a file profile.ps1 that's loaded when opening a new session.
+So here you can Set-Alias to often used functions.

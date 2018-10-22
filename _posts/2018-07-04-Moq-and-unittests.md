@@ -15,7 +15,8 @@ tags: c# .net unitTests
     - [A object to Json](#a-object-to-json)
     - [Map the ConsoleOutPut to a StringWriter So we can assert that](#map-the-consoleoutput-to-a-stringwriter-so-we-can-assert-that)
     - [FluentBuilder](#fluentbuilder)
-    - [testing of a HttpClient](#testing-of-a-httpclient)
+    - [Testing of a HttpClient](#testing-of-a-httpclient)
+    - [Internals visible to](#internals-visible-to)
 
 It's always recommended to keep your tests small example 16 lines and readably. And the cyclomatic complexity at 1.
 
@@ -78,7 +79,7 @@ It's nicer to make use of the [fluent builder pattern](https://martinfowler.com/
 
 An other way to prevent a lot of setup code the easy breaks is to make use of library's like autoMock or [autoFixture](https://github.com/AutoFixture/AutoFixture).
 
-## testing of a HttpClient
+## Testing of a HttpClient
 
 It has no interface so mocking will be difficult. You can overwrite the httpClientHandler that you use to create a new HttpClient.
 
@@ -119,3 +120,9 @@ The using is there to prevent CA2000: Dispose objects before losing scope.
         }
     }
 ```
+
+## Internals visible to
+
+ The `InternalsVisibleToAttribute` can be used when you have the source code to make internal props and method visible to a specific assembly.
+
+[A way for when you can not use internals visible to](https://www.strathweb.com/2018/10/no-internalvisibleto-no-problem-bypassing-c-visibility-rules-with-roslyn/)
