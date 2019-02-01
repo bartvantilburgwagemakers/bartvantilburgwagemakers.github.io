@@ -9,14 +9,14 @@ tags: c# .net unitTests
 # {{title}}
 
 - [{{title}}](#title)
-    - [To call the real method's on a object](#to-call-the-real-methods-on-a-object)
-    - [AutoMock && AutoFact](#automock--autofact)
-    - [Map the ConsoleOutPut to a StringWriter So we can assert that](#map-the-consoleoutput-to-a-stringwriter-so-we-can-assert-that)
-    - [A object to Json](#a-object-to-json)
-    - [Map the ConsoleOutPut to a StringWriter So we can assert that](#map-the-consoleoutput-to-a-stringwriter-so-we-can-assert-that)
-    - [FluentBuilder](#fluentbuilder)
-    - [Testing of a HttpClient](#testing-of-a-httpclient)
-    - [Internals visible to](#internals-visible-to)
+  - [To call the real method's on a object](#to-call-the-real-methods-on-a-object)
+  - [AutoMock && AutoFact](#automock--autofact)
+  - [Raise a event](#raise-a-event)
+  - [A object to Json](#a-object-to-json)
+  - [Map the ConsoleOutPut to a StringWriter So we can assert that](#map-the-consoleoutput-to-a-stringwriter-so-we-can-assert-that)
+  - [FluentBuilder](#fluentbuilder)
+  - [Testing of a HttpClient](#testing-of-a-httpclient)
+  - [Internals visible to](#internals-visible-to)
 
 It's always recommended to keep your tests small example 16 lines and readably. And the cyclomatic complexity at 1.
 
@@ -44,18 +44,6 @@ To auto mock these you can use autofac + moq to auto resolve and mock some depen
             }
 ```
 
-## Map the ConsoleOutPut to a StringWriter So we can assert that
-
-```csharp
-using (var @out = new StringWriter())
-using (var @in = new StringReader(input))
-{
-    Console.SetOut(@out);
-    Console.SetIn(@in);
-
-    Assert.Equal("expected", @out.ToString);
-}
-
 ## Raise a event
 
 To raise a event for a mocked object you can use
@@ -68,9 +56,7 @@ To raise a event for a mocked object you can use
 
 ## A object to Json
 
-Some times you want to rerun a senario wit input collected while debugging. You can create a test for this by writing the input object to json en read it in the unit test. ```Newtonsoft.Json.JsonConvert.SerializeObject(Object)``` 
-
-Some times you want to rerun a scenario wit input collected while debugging. You can create a test for this by writing the input object to json en read it in the unit test. ```Newtonsoft.Json.JsonConvert.SerializeObject(Object)```
+Some times you want to rerun a scenario wit input collected while debugging. You can create a test for this by writing the input object to json en read it in the unit test. ```Newtonsoft.Json.JsonConvert.SerializeObject(Object)``` 
 
 ## Map the ConsoleOutPut to a StringWriter So we can assert that
 
