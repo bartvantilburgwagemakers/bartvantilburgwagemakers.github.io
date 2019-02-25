@@ -56,7 +56,7 @@ To raise a event for a mocked object you can use
 
 ## A object to Json
 
-Some times you want to rerun a scenario wit input collected while debugging. You can create a test for this by writing the input object to json en read it in the unit test. ```Newtonsoft.Json.JsonConvert.SerializeObject(Object)``` 
+Some times you want to rerun a scenario wit input collected while debugging. You can create a test for this by writing the input object to json en read it in the unit test. ```Newtonsoft.Json.JsonConvert.SerializeObject(Object)```
 
 ## Map the ConsoleOutPut to a StringWriter So we can assert that
 
