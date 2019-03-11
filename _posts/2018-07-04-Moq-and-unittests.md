@@ -1,5 +1,5 @@
 ---
-title: UnitTests with moq in .Net
+title: UnitTests
 layout: post
 date:   2018-07-04 20:00:01 -0600
 categories: c#, .Net, Moq
