@@ -9,6 +9,7 @@ tags: c# .net unitTests
 # {{title}}
 
 - [{{title}}](#title)
+  - [Moq examples](#moq-examples)
   - [To call the real method's on a object](#to-call-the-real-methods-on-a-object)
   - [AutoMock && AutoFact](#automock--autofact)
   - [Raise a event](#raise-a-event)
@@ -19,6 +20,21 @@ tags: c# .net unitTests
   - [Internals visible to](#internals-visible-to)
 
 It's always recommended to keep your tests small example 16 lines and readably. And the cyclomatic complexity at 1.
+
+## Moq examples
+
+Set a get only prop
+
+```csharp
+ instance.SetupGet(o => o.IsTerminated).Returns(true);
+ ```
+
+Make a mocked object castable to a other interface use:
+
+```csharp
+instance.As<IDisposable>();
+```
+
 
 ## To call the real method's on a object
 
