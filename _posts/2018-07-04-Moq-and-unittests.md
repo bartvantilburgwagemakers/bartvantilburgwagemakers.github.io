@@ -12,7 +12,6 @@ tags: c# .net unitTests
   - [Moq examples](#moq-examples)
   - [To call the real method's on a object](#to-call-the-real-methods-on-a-object)
   - [AutoMock && AutoFact](#automock--autofact)
-  - [Map the ConsoleOutPut to a StringWriter So we can assert that](#map-the-consoleoutput-to-a-stringwriter-so-we-can-assert-that)
   - [Raise a event](#raise-a-event)
   - [A object to Json](#a-object-to-json)
   - [Map the ConsoleOutPut to a StringWriter So we can assert that](#map-the-consoleoutput-to-a-stringwriter-so-we-can-assert-that)
@@ -36,14 +35,13 @@ Make a mocked object castable to a other interface use:
 instance.As<IDisposable>();
 ```
 
-
 ## To call the real method's on a object
 
 Sometimes you want to call the real implementation of a method but mock some others.
 You can do this with `callbase = true` and make the other methods virtual.
 
 ```csharp
-var brockerUtilsMock = new Mock<BrockerUtils>(){ CallBase = true};
+var UtilsMock = new Mock<MyClass>(){ CallBase = true};
 ```
 
 ## AutoMock && AutoFact
@@ -62,7 +60,6 @@ Make sure you are using the interface type that's you constructors are using for
             }
 ```
 
-```
 ## Raise a event
 
 To raise a event for a mocked object you can use
