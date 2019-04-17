@@ -7,10 +7,10 @@ tags: git pr's
 ---
 # {{title}}
 
-# Look at
+## Look at
 
 - [ ] Why this way and can it be done in a other way?
-- [ ] Is this the rigth place to do this in the code?
+- [ ] Is this the right place to do this in the code?
 - [ ] Unit test coverage and asserts
 - [ ] SOLID
 - [ ] Is it clear wat the code is doing?

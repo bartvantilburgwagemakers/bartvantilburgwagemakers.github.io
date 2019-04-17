@@ -22,6 +22,8 @@ Unblock-Files in folder
 
 Gci | Unblock-File un blocks all files in folder
 
+switch parameter use a : to give the to a method
+
 ```powershell
 Get-Content myTestLog.log -wait | where { $_ -match “WARNING” }
 ```
