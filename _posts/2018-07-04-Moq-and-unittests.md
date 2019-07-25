@@ -10,13 +10,6 @@ tags: c# .net unitTests
 
 - [{{title}}](#title)
   - [Moq examples](#moq-examples)
-  - [To call the real method's on a object](#to-call-the-real-methods-on-a-object)
-  - [AutoMock && AutoFact](#automock--autofact)
-  - [Raise a event](#raise-a-event)
-  - [A object to Json](#a-object-to-json)
-  - [Map the ConsoleOutPut to a StringWriter So we can assert that](#map-the-consoleoutput-to-a-stringwriter-so-we-can-assert-that)
-  - [FluentBuilder](#fluentbuilder)
-  - [Testing of a HttpClient](#testing-of-a-httpclient)
   - [Internals visible to](#internals-visible-to)
 
 It's always recommended to keep your tests small example 16 lines and readably. And the cyclomatic complexity at 1.
@@ -39,13 +32,13 @@ instance.As<IDisposable>();
 ## To call the real method's on a object
 
 Sometimes you want to call the real implementation of a method but mock some others.
-You can do this with `callbase = true` and make the other methods virtual.
+You can do this with `callbase = true` and make the other methods virtual and public. 
 
 ```csharp
 var brockerUtilsMock = new Mock<BrockerUtils>(){ CallBase = true};
 ```
 
-## AutoMock && AutoFact
+## AutoMock && AutoFac
 
 When testing method's with a lot of dependency's injected, it can be a lot of repeating work to mock them all.
 To auto mock these you can use autofac + moq to auto resolve and mock some dependencies.
