@@ -10,7 +10,6 @@ tags: c# .net unitTests
 
 - [{{title}}](#title)
   - [Moq examples](#moq-examples)
-  - [Internals visible to](#internals-visible-to)
 
 It's always recommended to keep your tests small example 16 lines and readably. And the cyclomatic complexity at 1.
 
@@ -22,7 +21,7 @@ Set a get only prop
  instance.SetupGet(o => o.IsTerminated).Returns(true);
  ```
 
-Make a mocked object castable to a other interface use:
+Make a mocked object cast-able to a other interface use:
 
 ```csharp
 instance.As<IDisposable>();
@@ -32,7 +31,8 @@ instance.As<IDisposable>();
 ## To call the real method's on a object
 
 Sometimes you want to call the real implementation of a method but mock some others.
-You can do this with `callbase = true` and make the other methods virtual and public. 
+You can do this with `callbase = true` and make the other methods virtual and public.
+Or internal with the internals viable to Moq [more info here](##Internals-visible-to)
 
 ```csharp
 var brockerUtilsMock = new Mock<BrockerUtils>(){ CallBase = true};
@@ -136,3 +136,7 @@ The using is there to prevent CA2000: Dispose objects before losing scope.
  The `InternalsVisibleToAttribute` can be used when you have the source code to make internal props and method visible to a specific assembly.
 
 [A way for when you can not use internals visible to](https://www.strathweb.com/2018/10/no-internalvisibleto-no-problem-bypassing-c-visibility-rules-with-roslyn/)
+
+example for making it viable to the MOQ framework:
+
+```[assembly: InternalsVisibleTo("DynamicProxyGenAssembly2")]```
