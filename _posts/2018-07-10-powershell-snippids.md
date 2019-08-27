@@ -12,6 +12,7 @@ tags: powershell
   - [search in files](#search-in-files)
   - [add a profile](#add-a-profile)
   - [Change config Files](#change-config-files)
+  - [Set environment vars](#set-environment-vars)
 
 Powershell is one of the most overlooked windows apps for ops. This approach doesn’t have any extra features but can be perfect for opening a quick commandlet window and keeping an eye on the status of a file.
 Use the following simple syntax to show the tail end of a log file in real-time.
@@ -84,3 +85,15 @@ So here you can Set-Alias to often used functions.
         $child.SetAttribute($Attribute, $addinLocation)
     }
 ```
+
+## Set environment vars
+
+You can set a env var with the following line:
+
+`[environment]::SetEnvironmentVariable("name","value", "User")`
+
+And use `Machine` if it's for the machine level.
+
+Set register key `Set-Itemproperty`
+
+Disable quickEdit on console `Set-Itemproperty -path 'HKCU:\Console' -Name  QuickEdit -Value 0`
