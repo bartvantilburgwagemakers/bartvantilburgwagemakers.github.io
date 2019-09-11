@@ -30,5 +30,5 @@ System.FormatException: JSON reader expected a string but found '{'.
 
 wrong file context
 wrong : `{"_id":{"$binary":{"base64":"lqRY7JOzT0a1fpC99CBnAQ=="`
-ghood: `{ "_id" : UUID("96a458ec-93b3-4f46-b57e-90bdf4206701")`
+good: `{ "_id" : UUID("96a458ec-93b3-4f46-b57e-90bdf4206701")`
 
