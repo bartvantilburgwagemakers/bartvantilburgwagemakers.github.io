@@ -57,8 +57,10 @@ Make sure you are using the interface type that's you constructors are using for
             {
                 mock.Provide<ISchedulerProvider>(new TestSchedulers());
                 mock.Provide<IEventHub>(new Logic.Eventing.EventHub());
-                var hostedAppRegistry = mock.Create<HostedAppRegistry>();
-                Assert.IsFalse(hostedAppRegistry.Apps.Any());
+                var id = Guid.NewGuid();
+                var instance = mock.Create<Instance>(new TypedParameter(typeof(Guid), Guid.NewGuid(),(new NamedParameter("id", id)));
+                var registry = mock.Create<Registry>();
+                Assert.IsFalse(Registry.Apps.Any());
             }
 ```
 
