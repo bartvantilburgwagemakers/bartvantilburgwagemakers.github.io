@@ -7,6 +7,13 @@ tags: powershell
 ---
 # {{title}}
 
+- [{{title}}](#title)
+  - [making a post request](#making-a-post-request)
+  - [search in files](#search-in-files)
+  - [add a profile](#add-a-profile)
+  - [Change config Files](#change-config-files)
+  - [Set environment vars](#set-environment-vars)
+
 Powershell is one of the most overlooked windows apps for ops. This approach doesn’t have any extra features but can be perfect for opening a quick commandlet window and keeping an eye on the status of a file.
 Use the following simple syntax to show the tail end of a log file in real-time.
 Get-Content myTestLog.log –Wait
@@ -50,3 +57,43 @@ Get-ChildItem -recurse -Filter *.config | Select-String -pattern "log" | group p
 
 In `C:\Users\[username]\Documents\WindowsPowerShell` you can add a file profile.ps1 that's loaded when opening a new session.
 So here you can Set-Alias to often used functions.
+
+## Change config Files
+
+```ps
+    $ConfigFile = 'C:\Apps\example.exe.config'
+    ## XML Node names and Attributes are CaSe SeNsItIvE!
+    $addinLocation = "C:\Apps\Addins\"
+    $XPath = "configuration/PluginSearchContext/add[@Location='$addinLocation']"
+    $Attribute = "Location"
+
+    $xml = [xml](Get-Content -Path $ConfigFile)
+    $node = $xml.SelectSingleNode($XPath)
+    If($node -eq $null){
+
+        $child = $xml.CreateElement("add")
+        $node = $xml.SelectSingleNode("configuration/PluginSearchPaths")
+
+        AddIdAtribute
+        $node.AppendChild($child)
+        $xml.Save($ConfigFile)
+    }
+
+    function AddIdAtribute (){
+        $AddNodes =$node.SelectNodes("add")
+        $child.SetAttribute('Id', $AddNodes.Count+1)
+        $child.SetAttribute($Attribute, $addinLocation)
+    }
+```
+
+## Set environment vars
+
+You can set a env var with the following line:
+
+`[environment]::SetEnvironmentVariable("name","value", "User")`
+
+And use `Machine` if it's for the machine level.
+
+Set register key `Set-Itemproperty`
+
+Disable quickEdit on console `Set-Itemproperty -path 'HKCU:\Console' -Name  QuickEdit -Value 0`
