@@ -35,7 +35,6 @@ Make a mocked object cast-able to a other interface use:
 instance.As<IDisposable>();
 ```
 
-
 ## To call the real method's on a object
 
 Sometimes you want to call the real implementation of a method but mock some others.
@@ -43,7 +42,7 @@ You can do this with `callbase = true` and make the other methods virtual and pu
 Or internal with the internals viable to Moq [more info here](##Internals-visible-to)
 
 ```csharp
-var brockerUtilsMock = new Mock<BrockerUtils>(){ CallBase = true};
+var UtilsMock = new Mock<MyClass>(){ CallBase = true};
 ```
 
 ## AutoMock && AutoFac
