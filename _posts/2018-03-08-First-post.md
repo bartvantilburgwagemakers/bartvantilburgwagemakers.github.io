@@ -1,6 +1,6 @@
 ---
-title: First post 
-categories: blog
+title: NuGet
+categories: NuGet
 
 ---
 
@@ -10,4 +10,4 @@ This will be my first post for now just to experiment how this will work. I if u
 
 # reinstall all nuget packages for sln in vs
 
-Update-Package -safe -reinstall -IgnoreDependencies
+Run: `Update-Package -safe -reinstall -IgnoreDependencies` in the package manger console Tools>NUget>Console
