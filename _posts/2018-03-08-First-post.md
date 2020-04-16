@@ -8,6 +8,20 @@ categories: NuGet
 
 This will be my first post for now just to experiment how this will work. I if u can work with it.
 
-# reinstall all nuget packages for sln in vs
+## reinstall all nuget packages for sln in vs
 
 Run: `Update-Package -safe -reinstall -IgnoreDependencies` in the package manger console Tools>NUget>Console
+
+## Updating Assembly Redirects with NuGet
+
+Run: `Get-Project –All | Add-BindingRedirect`
+Remove -all to do it only on the current project.
+
+## Install the cli
+
+`choco install nuget.commandline`
+
+## Add a NuGet source with token
+
+Must do this  with the command line.
+`nuget.exe sources add -name [name] -source [https://uri] -userName [anything] -password [accessToken]`
