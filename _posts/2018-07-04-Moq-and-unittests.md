@@ -149,3 +149,23 @@ The using is there to prevent CA2000: Dispose objects before losing scope.
 example for making it viable to the MOQ framework:
 
 ```[assembly: InternalsVisibleTo("DynamicProxyGenAssembly2")]```
+
+
+## XUnit
+
+One of the biggest advantages of Xunit instead of MsTest or NUnit is the isolation 
+xUnit.net creates a new instance of the test class for every test that is run.
+So any code which is placed into the constructor of the test class will be run for every single test.
+
+Another advantage is the way of writing. That looks more like the normal way of writing C# code with a constructor instead of [TestInit] see [this post for more info](https://jamesnewkirk.typepad.com/posts/2007/09/why-you-should-.html)
+
+### Xunit throw 
+
+A nice notation for asserting a throwe in XUnit is: 
+
+```csharp
+    void Act() => sut.AddKindOfCupboard(null, stringBuilder);
+
+    Assert.Throws<System.ArgumentNullException>(Act);
+```
+
