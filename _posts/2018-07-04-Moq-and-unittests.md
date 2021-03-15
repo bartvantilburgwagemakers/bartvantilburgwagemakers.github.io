@@ -146,7 +146,7 @@ The using is there to prevent CA2000: Dispose objects before losing scope.
 
 [A way for when you can not use internals visible to](https://www.strathweb.com/2018/10/no-internalvisibleto-no-problem-bypassing-c-visibility-rules-with-roslyn/)
 
-example for making it viable to the MOQ framework:
+example for making it visable to the MOQ framework:
 
 ```[assembly: InternalsVisibleTo("DynamicProxyGenAssembly2")]```
 
