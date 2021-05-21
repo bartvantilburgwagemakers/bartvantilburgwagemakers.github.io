@@ -1,13 +1,4 @@
----
-title: Remote debugger
-layout: post
-date:   2020-06-30 08:00:01 -0600
-categories: Debug, VisualSudio
-tags: 
----
-<sup><sup>written at {{date}} </sup></sup>
-
-# {{title}}  
+0!
 
 We sometimes test on the other devices then our own.
 Try the remote debugger if visual studio is not available.
