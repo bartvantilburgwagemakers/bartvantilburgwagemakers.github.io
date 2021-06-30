@@ -2,9 +2,6 @@
 baseUrl: https://github.com/bartvantilburgwagemakers/bartvantilburgwagemakers.github.io
 ---
 ## Welcome to mine GitHub Pages test project 
-# Todo:  
-- [ ] Change title
-- [ ] Add page
 
 [test here ](https://bartvantilburgwagemakers.github.io/)
 
