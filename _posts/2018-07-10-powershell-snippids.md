@@ -103,3 +103,11 @@ Disable quickEdit on console `Set-Itemproperty -path 'HKCU:\Console' -Name  Quic
 
 
 `Get-ChildItem -Exclude *.dll,*.exe,*pdb,*svg,*.csv,*.pdf  -Recurse | Select-String -Pattern "" -List  >LookInToo.txt`
+
+## Search in event log
+
+Replace `Print Spooler service` by the name of parts of it.
+
+```
+(Get-EventLog -LogName "System" -Source "Service Control Manager" -EntryType "Information" -Message "*Print Spooler service*running*" -Newest 1).TimeGenerated
+```
