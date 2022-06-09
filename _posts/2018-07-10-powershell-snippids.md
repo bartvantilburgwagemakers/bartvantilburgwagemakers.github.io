@@ -111,3 +111,17 @@ Replace `Print Spooler service` by the name of parts of it.
 ```
 (Get-EventLog -LogName "System" -Source "Service Control Manager" -EntryType "Information" -Message "*Print Spooler service*running*" -Newest 1).TimeGenerated
 ```
+
+
+
+
+## Tail watch end of file 
+```powershell
+Get-Content filename.log -Wait
+```
+
+## Recursively find files whose content matches a regex pattern and display the first 10 lines for context:
+
+```powerahell
+Get-ChildItem .\*.txt -Recurse | Select-String -Pattern 'MyPattern' -context 10,0
+```
