@@ -22,14 +22,13 @@ You can also filter the log right at the command line using regular expressions:
 
 use `$` to prefix var's;
 
-Get-ChildItem alias gci
-
 -WhatIf show effect
-
+```powershell
+Get-ChildItem alias gci
 Unblock-Files in folder 
 
 Gci | Unblock-File un blocks all files in folder
-
+```
 switch parameter use a : to give the to a method
 
 ```powershell
