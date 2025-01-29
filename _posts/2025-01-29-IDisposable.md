@@ -138,7 +138,7 @@ Objecten die niet goe worden opgeruimt kunnen blijven hangen in momory zonder da
 [IDisposable Best Practices for C# Developers | Integrated Learning Experience](https://app.pluralsight.com/ilx/video-courses/58f4916e-10df-4cb8-bd58-a2b291fb9c4b/9543e4d3-a058-4b42-a22e-77df55202e7a/f323ca9e-7b5b-4b77-ba48-bbff57196536)
 
 voorbeelde van unmanged code (buiten de eigen app )
-![[Pasted image 20250120115905.png]]
+![[../assets/unmangedObjects.png]]
 
 # hoe using eigelijk werkt 
 
